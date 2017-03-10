@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/principal.css"/>
+
+        <!-- CSS handsontable -->
+        <link rel="stylesheet" href="js\libs\handsontable\handsontable.full.css"/>
+
+        <!-- CSS do Modulo main -->
+        <link rel="stylesheet" href="css/modulos/main/componentes/divisoria.css"/>
+        <link rel="stylesheet" href="css/modulos/main/componentes/parte-de-cima.css"/>
+        <link rel="stylesheet" href="css/modulos/main/componentes/parte-de-baixo.css"/>
+
+        <link rel="stylesheet" href="css/modulos/main/componentes/planilha.css"/>
+
+    </head>
+    <body ng-app="main.js">
+        <div ng-controller="principal.controller" class="principal">
+            <parte-de-cima></parte-de-cima>
+            <divisoria></divisoria>
+            <parte-de-baixo></parte-de-baixo>
+        </div>
+
+        <!-- libs -->
+        <script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/libs/angular.min.js"></script>
+
+        <!-- handsontable -->
+        <script type="text/javascript" src="js/libs/handsontable/handsontable.full.js"></script>
+        <script type="text/javascript" src="js/libs/handsontable/ngHandsontable.js"></script>
+
+        <!-- modulos customizados -->
+        <script type="text/javascript" src="js/modulos/main/main.js"></script>
+        <script type="text/javascript" src="js/modulos/main/controllers/principal.controller.js"></script>
+        <script type="text/javascript" src="js/modulos/main/controllers/divisoria.wrapper.controller.js"></script>
+        <script type="text/javascript" src="js/modulos/main/controllers/partedecima.wrapper.controller.js"></script>
+        <script type="text/javascript" src="js/modulos/main/controllers/partedebaixo.wrapper.controller.js"></script>
+
+        <!-- diretivas sendo chamados apos controllers propositalmente -->
+        <script type="text/javascript" src="js/modulos/main/diretivas.principal.js"></script>
+
+         <!-- componentes core -->
+        <!--<script type="text/javascript" src="js/modulos/main/core/matriz.js"></script>-->
+        <script type="text/javascript" src="js/modulos/main/core/matriz.js"></script>
+
+        <!-- Componentes modulo main -->
+        <script type="text/javascript" src="js/modulos/main/componentes/divisoria.js"></script>
+        <script type="text/javascript" src="js/modulos/main/componentes/parte.de.cima.js"></script>
+        <script type="text/javascript" src="js/modulos/main/componentes/parte.de.baixo.js"></script>
+        <script type="text/javascript" src="js/modulos/main/componentes/manipulador.hot.table.js"></script>
+        <script type="text/javascript" src="js/modulos/main/componentes/alinha.js"></script>
+        <script type="text/javascript" src="js/modulos/main/componentes/config.hot.table.js"></script>
+    </body> 
+</html>

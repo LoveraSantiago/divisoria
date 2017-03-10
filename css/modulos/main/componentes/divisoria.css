@@ -1,0 +1,9 @@
+.divisoria{
+    background-color: black;
+    height: 1%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    /*bottom: 326px;*/
+    left: 0px;
+}
