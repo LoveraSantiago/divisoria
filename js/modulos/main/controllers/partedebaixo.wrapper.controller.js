@@ -1,21 +1,17 @@
 angular.module('main.js')
      .controller('partedebaixo.wrapper.controller', 
-        ['$scope', '__parteBaixo', 'hotRegisterer', '$timeout', '__confight',
- function($scope ,  __parteBaixo ,  hotRegisterer ,  $timeout ,  __confight){
+        ['$scope', '__parteBaixo', 'hotRegisterer', '$timeout', '__confight', '__matriz', '__alinha',
+ function($scope ,  __parteBaixo ,  hotRegisterer ,  $timeout ,  __confight ,  __matriz ,  __alinha){
         
         let planBaixo;
-        $scope.config;
-        $scope.settingsInicial = { contextMenu: ['row_above', 'row_below', 'remove_row']};
+        $scope.settingsInicial = __confight.getConfiguracao();
+        $scope.matrizBaixo = { matriz : __matriz.getMatriz() };
 
         //chamado apos o onload
         var callBackOnLoad = function(){
             planBaixo = hotRegisterer.getInstance('planBaixo');
             __parteBaixo.registrarCallBackDivisoriaMovimentada(callBackDivisoriaMovimentada);
-
-            __confight.configurar(planBaixo, 'planBaixo');
-
-            $scope.config = planBaixo.configuracao;
-            planBaixo.updateSettings($scope.config.settings, true);
+            __alinha.registrarHotTable(planBaixo);
 
              $timeout(function(){
                 planBaixo.render();

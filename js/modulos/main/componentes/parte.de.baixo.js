@@ -4,19 +4,33 @@ angular.module('main.js')
         let divBaixo;
         let callBacksDivisoriaMovimentada = [];
 
+        let lazy = -1;
+
         var __inicializar = function(){
             divBaixo = $('#parteBaixo');
         };
 
         var __registrarCallBackDivisoriaMovimentada = function(callbak){
             callBacksDivisoriaMovimentada.push(callbak);
+
+            if(lazy != -1){
+                __listenerDivisoriaMovimentada(lazy);
+            }
         };
 
         var __listenerDivisoriaMovimentada = function(pBaixoDivisoria){
+            isLazyInicializacao(pBaixoDivisoria);
+
             divBaixo.height($window.innerHeight - pBaixoDivisoria);
             for(let i = 0; i < callBacksDivisoriaMovimentada.length; i++){
-                let margemTop = parseInt(divBaixo.css('margin-top'));
+                let margemTop = parseInt(divBaixo.css('margin-top')) + 10;
                 callBacksDivisoriaMovimentada[i](divBaixo.height() - margemTop);
+            };
+        };
+
+        var isLazyInicializacao = function(pBaixoDivisoria){
+            if(callBacksDivisoriaMovimentada.length == 0){
+                lazy = pBaixoDivisoria;
             };
         };
 

@@ -1,21 +1,17 @@
 angular.module('main.js')
      .controller('partedecima.wrapper.controller', 
-        ['$scope', '__parteCima', 'hotRegisterer', '$timeout', '__confight',
- function($scope ,  __parteCima,   hotRegisterer ,  $timeout ,  __confight){
+        ['$scope', '__parteCima', 'hotRegisterer', '$timeout', '__confight', '__matriz', '__alinha',
+ function($scope ,  __parteCima,   hotRegisterer ,  $timeout ,  __confight ,  __matriz ,  __alinha){
         
         let planCima;
-        $scope.config;
-        $scope.settingsInicial = { contextMenu: ['row_above', 'row_below', 'remove_row']};
+        $scope.settingsInicial = __confight.getConfiguracao();
+        $scope.matrizCima = { matriz : __matriz.getMatriz() };
         
         //chamado apos o onload
         var callBackOnLoad = function(){
             planCima = hotRegisterer.getInstance('planCima');
             __parteCima.registrarCallBackDivisoriaMovimentada(callBackDivisoriaMovimentada);
-
-            __confight.configurar(planCima, 'planCima');
-
-            $scope.config = planCima.configuracao;
-            planCima.updateSettings($scope.config.settings, true);
+            __alinha.registrarHotTable(planCima);
 
             $timeout(function(){
                 planCima.render();

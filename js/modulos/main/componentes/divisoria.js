@@ -11,7 +11,16 @@ angular.module('main.js')
 
             __parteCima.inicializar();
             __parteBaixo.inicializar();
+
+            recuperarUltimaPosicao();
             movendoPartes();
+        };
+
+        var recuperarUltimaPosicao = function(){
+            let ultimaPosicao = localStorage.getItem('posicaoBarra');
+            if(ultimaPosicao){
+                divisoria.css('top', Math.max(0, ultimaPosicao));
+            };
         };
 
         var mouseClicado = function(e){
@@ -24,6 +33,7 @@ angular.module('main.js')
 
         var movendoDivisoria = function(e){
             divisoria.css('top', Math.max(0, e.clientY));
+            localStorage.setItem('posicaoBarra', e.clientY);
             movendoPartes();
         };
 
